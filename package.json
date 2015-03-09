@@ -1,0 +1,32 @@
+{
+  "name": "deferred-utilities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm run test-node && npm run lint",
+    "lint": "eslint underscore.js test/*.js",
+    "test-node": "qunit-cli test/*.js",
+    "test-browser": "npm i karma-phantomjs-launcher && ./node_modules/karma/bin/karma start",
+    "build": "uglifyjs underscore.js -c \"evaluate=false\" --comments \"/    .*/\" -m --source-map underscore-min.map -o underscore-min.js",
+    "doc": "docco underscore.js"
+  },
+  "keywords": [
+    "deferred",
+    "promises",
+    "jQuery",
+    "utilities"
+  ],
+  "author": "Tung Dang <mr.dangthanhtung@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "0.16.x",
+    "jasmine": "^2.2.1",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-qunit": "~0.1.4",
+    "uglify-js": "2.4.x"
+  }
+}
