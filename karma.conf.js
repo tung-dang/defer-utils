@@ -16,32 +16,46 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs', 'sinon'],
 
 
     // list of files / patterns to load in the browser
     files: [
-        'src/main/**/*.js'
-        'src/test/spec/**/*.spec.js'
+        {pattern: 'lib/**/*.js', included: false},
+        {pattern: 'src/main/**/*.js', included: false},
+        {pattern: 'src/test/spec/**/*.spec.js', included: false},
+        'src/test/test-main.js'
     ],
 
 
     // list of files to exclude
     exclude: [
+        'src/main.js'
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        // configuration for Istanbul code coverage tool
+        "src/main/**/*.js": "coverage"
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'junit', /*'coverage'*/],
 
+    junitReporter: {
+        outputFile: "target/surefire-reports/karma-results.xml",
+        suite: ""
+    },
+
+    coverageReporter: {
+        type : 'lcov',
+        dir : 'coverage/'
+    },
 
     // web server port
     port: 9876,
@@ -67,13 +81,15 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
-     plugins: [
+    plugins: [
+        'karma-jasmine',
+        'karma-requirejs',
+        'karma-sinon',
+        'karma-js-coverage',
         'karma-junit-reporter',
         'karma-chrome-launcher',
-        'karma-firefox-launcher',
-        'karma-jasmine',
         'karma-phantomjs-launcher'
     ],
   });

@@ -1,22 +1,18 @@
-function Player() {
-}
-Player.prototype.play = function(song) {
-  this.currentlyPlayingSong = song;
-  this.isPlaying = true;
-};
+define([
+   'jquery',
+   'wait'],
+function(
+    $,
+    dfdUtils
+) {
+    describe('just checking', function() {
 
-Player.prototype.pause = function() {
-  this.isPlaying = false;
-};
+        it('works for app', function() {
+            console.log(dfdUtils);
+            console.log(dfdUtils.wait);
+            expect("").toEqual('');
+        });
 
-Player.prototype.resume = function() {
-  if (this.isPlaying) {
-    throw new Error("song is already playing");
-  }
+    });
 
-  this.isPlaying = true;
-};
-
-Player.prototype.makeFavorite = function() {
-  this.currentlyPlayingSong.persistFavoriteStatus(true);
-};
+});
