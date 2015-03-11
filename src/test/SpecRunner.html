@@ -19,7 +19,9 @@
                 'jasmine-boot'   : '../../lib/jasmine-2.2.0/boot',
                 'jasmine-console': '../../lib/jasmine-2.2.0/console',
                 spec             : '../test/spec/',
-                'boot'           : '../test/boot'
+                'boot'           : '../test/boot',
+                'utils'          : '../test/utils',
+                sinon            : '../../lib/sinon/sinon-1.12.2'
             },
             shim: {
                 jasmine: {
@@ -29,7 +31,7 @@
                     deps: ['jasmine'],
                     exports: 'jasmine'
                 },
-                'boot': {
+                boot: {
                     deps: ['jasmine-html'],
                     exports: 'jasmine'
                 }

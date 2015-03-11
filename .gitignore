@@ -1,7 +1,6 @@
 # Logs
 logs
 *.log
-
 # Runtime data
 pids
 *.pid
@@ -26,3 +25,87 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Temporary files #
+###################
+*.swp
+*.swo
+*~
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+Desktop.ini
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Generated code #
+*~
+bower_components
+components
+node_modules
+.sass-cache
+dist
+.tmp
+.idea
+.svn
+target/
+*.imls
+*.egg-info
+.codeintel
+htmlcov
+.coverage
+*.coverage
+web-app/WEB-INF/tld/c.tld
+web-app/WEB-INF/tld/fmt.tld
+.vagrant/
+.gradle/
+*.pyc
+.flowconfig
+
+
+# Sublime #
+Side Bar Folders.sublime-settings
+*.sublime-project
+*.sublime-workspace
+Main.sublime-menu
+*.merged-ca-bundle
+*.user-ca-bundle
+*.cache
+Material.tmTheme
+/npm-debug.log
+/sublime3/Default (Linux).sublime-keymap
+/sublime3/Default (Windows).sublime-keymap
+/sublime3/Package Control.last-run
+/sublime3/Package Control.system-ca-bundle
+

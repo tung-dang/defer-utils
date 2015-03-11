@@ -23,27 +23,48 @@
 }(this, function (exports, $) {
 
     /**
-     * [wait description]
-     * @wait {integer} timeout number
+     * A replacement for 'setTimeout' function and return a Promise
+     *
+     * @example:
+     * var promise = wait(100);
+     * promise.done(function () {
+     *     console.log('After 100 ms.');
+     * });
+     *
+     * @example:
+     * var promise = wait(100);
+     * promise.cancelWait();
+     *
+     * promise.done(function () {
+     *     console.log('This never happens.');
+     * });
+     *
+     * promise.reject(function () {
+     *     console.log('Your train is cancel.');
+     * });
+     *
+     * @param {integer} wait - timeout number
+     * @param {object} context - a context of execution of all callbacks when deferred object is resolved or rejected
      * @return {Promise}
      */
-    var wait = function(timeout) {
+    var wait = function(timeout, context) {
         var deferred = $.Deferred();
         var promise = deferred.promise();
 
-        var timeoutId = setTimeout(deferred.resolve, timeout);
+        var timeoutId = setTimeout(function() {
+            deferred.resolveWith(context)
+        }, timeout);
 
         /**
-        * @pram context {object} context to cancel
+        * @param {object} context - context of cancelWait
         */
-        promise.cancelWait = function (context) {
-            context = context || deferred;
+        promise.cancelWait = function (contextOfCancel) {
 
             // convert arguments to array to exclude the first param, it is 'context'.
             var args = Array.prototype.slice.call(arguments, 1);
 
             clearTimeout(timeoutId);
-            deferred.rejectWidth(context, args);
+            deferred.rejectWith(contextOfCancel || context, args);
         };
 
         return promise;
