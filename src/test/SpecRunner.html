@@ -21,7 +21,8 @@
                 'jasmine-console': '../../lib/jasmine-2.2.0/console',
                 'jasmine-boot'   : '../test/jasmine-boot',
                 spec             : '../test/spec',
-                utils          : '../test/utils'
+                utils            : '../test/utils',
+                waitStub         : '../test/mock/waitStub'
             },
             // shim: makes external libraries compatible with requirejs (AMD)
             shim: {
@@ -35,6 +36,12 @@
                 'jasmine-boot': {
                     deps: ['jasmine-html'],
                     exports: 'jasmine'
+                }
+            },
+
+            map: {
+                'retryCaller': {
+                    'wait': 'waitStub'
                 }
             },
 
