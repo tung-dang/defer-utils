@@ -52,8 +52,8 @@
         var promise = deferred.promise();
 
         var timeoutId = setTimeout(function() {
-            deferred.resolveWith(context)
-        }, timeout);
+            deferred.resolveWith(context, arguments)
+        }, timeout || 0);
 
         /**
         * @param {object} context - context of cancelWait
