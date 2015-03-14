@@ -111,8 +111,8 @@ define(['jquery'], function ($) {
 
 
     $(document).ready(function () {
-        // add spec files here.
         var specs = [];
+        // add spec files here.
         specs.push('spec/wait.spec');
         specs.push('spec/getDeferredFromPromise.spec');
         specs.push('spec/retryCaller.spec');
