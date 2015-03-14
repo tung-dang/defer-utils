@@ -1,14 +1,14 @@
 define([
    'jquery',
-   'wait',
    'utils',
-   'sinon'
+   'sinon',
+   'wait'
 ],
 function(
     $,
-    dfdUtils,
     utils,
-    sinon
+    sinon,
+    dfdUtils
 ) {
     'use strict';
 
@@ -26,7 +26,7 @@ function(
 
         it('return a Promise', function() {
             var promise = dfdUtils.wait();
-            utils.isPromise(promise);
+            utils.checkIsAPromise(promise);
         });
 
         it('done callback is called with timeout', function() {
@@ -52,7 +52,7 @@ function(
             var promise = dfdUtils.wait(100, context).done(timerCallback);
 
             jasmine.clock().tick(101);
-            utils.isCalledWithContext(timerCallback, [{
+            utils.checkIsCalledWithContext(timerCallback, [{
                 object: context,
                 args: [],
                 returnValue: undefined
@@ -67,7 +67,7 @@ function(
 
             jasmine.clock().tick(101);
 
-            utils.isCalledWithContext(timerCallback, [{
+            utils.checkIsCalledWithContext(timerCallback, [{
                 object: context,
                 args: [],
                 returnValue: undefined
@@ -83,7 +83,7 @@ function(
 
             jasmine.clock().tick(101);
 
-            utils.isCalledWithContext(timerCallback, [{
+            utils.checkIsCalledWithContext(timerCallback, [{
                 object: context2,
                 args: [],
                 returnValue: undefined

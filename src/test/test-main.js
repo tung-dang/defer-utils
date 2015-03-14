@@ -1,3 +1,8 @@
+/**
+ * This configuration is for Karma test runner only.
+ * configuration for test runner Karma is inside `src/test/spec/SpecRunner.html`.
+ */
+
 var tests = [];
 for (var file in window.__karma__.files) {
     if (window.__karma__.files.hasOwnProperty(file)) {
