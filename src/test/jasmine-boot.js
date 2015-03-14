@@ -109,23 +109,12 @@ define(['jquery'], function ($) {
     window.clearTimeout = window.clearTimeout;
     window.clearInterval = window.clearInterval;
 
-    /**
-     * ## Execution
-     *
-     * Replace the browser window's `onload`, ensure it's called, and then run all of the loaded specs. This includes initializing the `HtmlReporter` instance and then executing the loaded Jasmine environment. All of this will happen after all of the specs are loaded.
-     */
-    var currentWindowOnload = window.onload;
 
-    //window.onload = function() {
-    //
     $(document).ready(function () {
-        if (currentWindowOnload) {
-            currentWindowOnload();
-        }
-
-
+        // add spec files here.
         var specs = [];
         specs.push('spec/wait.spec');
+        specs.push('spec/getDeferredFromPromise.spec');
 
         require(specs, function () {
             htmlReporter.initialize();
