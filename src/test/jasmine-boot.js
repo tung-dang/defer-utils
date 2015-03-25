@@ -116,6 +116,7 @@ define(['jquery'], function ($) {
         specs.push('spec/wait.spec');
         specs.push('spec/getDeferredFromPromise.spec');
         specs.push('spec/retryCaller.spec');
+        specs.push('spec/deactivatePromise.spec');
 
         require(specs, function () {
             htmlReporter.initialize();
